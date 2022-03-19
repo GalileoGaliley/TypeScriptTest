@@ -1,0 +1,118 @@
+@font-face {
+  font-family: 'Antipasto-Pro-ExtraLight-trial';
+  src: local('Antipasto-Pro-ExtraLight-trial'),
+  url(Fonts/Antipasto-Pro-ExtraLight-trial.ttf);
+}
+@font-face {
+  font-family: 'FuturaPT-Book';
+  src: local('FuturaPT-Book'),
+  url(Fonts/FuturaPT-Book.ttf);
+}
+@font-face {
+  font-family: 'Antipasto-Pro-Regular-trial';
+  src: local('Antipasto-Pro-Regular-trial'),
+  url(Fonts/Antipasto-Pro-Regular-trial.ttf);
+}
+@media (max-width: 850px) {
+  .modalBody{
+    width: 70%!important;
+  }
+  .formField{
+    width: 60%!important;
+  }
+}
+@media (max-width: 550px) {
+  .modalBody{
+    width: 90%!important;
+  }
+  .formField{
+    width: 90%!important;
+  }
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url("Images/back.png");
+  background-size: cover;
+  background-repeat: repeat;
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.formField{
+  background-color: #fff;
+  border: #282c34 solid 1px;
+  width: 40%;
+  font-family: Antipasto-Pro-Regular-trial;
+}
+.formFieldCreate{
+  background-color: #fff;
+  border: #282c34 solid 1px;
+  width: 100%;
+  font-family: Antipasto-Pro-Regular-trial;
+}
+h4{
+  color: #555;
+
+}
+.accountPage{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.account{
+  background-color: white;
+  width: 70%;
+  min-height: 100vh;
+  border: #282c34 solid 1px;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contactItem{
+  width: 95%;
+  border: #a59898 solid 1px;
+  height: fit-content;
+  border-radius: 20px;
+}
+input{
+  font-family: Arial!important;
+}
+.Modal{
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.3);
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modalBody{
+  display: flex;
+  width: 50%;
+  justify-content: center;
+}
+.closer{
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  background-image: url("./Images/close.svg");
+  background-size: cover;
+}
