@@ -7,11 +7,7 @@ import AppRouter from "./Components/AppRouter";
 
 function App() {
 
-    try {
 
-    }catch (e){
-
-    }
   return (
       <BrowserRouter >
           <AppRouter/>

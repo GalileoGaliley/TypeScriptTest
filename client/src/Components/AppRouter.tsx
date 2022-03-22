@@ -12,9 +12,9 @@ const AppRouter = observer(() => {
     const user = useContext(Context);
     useEffect(()=>{
         let token = localStorage.getItem("token");
+
         if (token){
-            user.us.setUser({token: token});
-            user.us.setAuth(true)
+            user.us.setUser({token:token});
             navigate('/account')
         }else {
             navigate('/login')

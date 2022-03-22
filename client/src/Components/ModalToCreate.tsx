@@ -1,20 +1,33 @@
-import React, {useContext, useState} from 'react';
+import React, {SetStateAction, useContext, useEffect, useState} from 'react';
 import {Button, Col, Form, Row} from "react-bootstrap";
 import {observer} from "mobx-react-lite";
 import {createContact} from "../HTTP/contactAPI";
 import {Context} from "../index";
+import User from "../models/User";
+import {useNavigate} from "react-router-dom";
+import { useLocation } from 'react-router'
 
-const ModalToCreate = observer(() => {
+const ModalToCreate = observer(({ onClick }:SetStateAction<any>) => {
 
-    const us = useContext(Context);
-    let user = us.us.User?.token;
+    const context = useContext(Context);
+    let user = context.us.User;
+    let contacts = context.con.Contact;
     const [name, setName] = useState('');
     const [lastname, setLastname] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
+
     const create = ()=>{
+
+        console.log(name + '/' + lastname + '/' + email + '/' + phone )
+        console.log(user)
         if (user){
-            createContact(name, lastname, email, phone, user).then(data => console.log(data));
+
+            console.log(name + '/' + lastname + '/' + email + '/' + phone )
+            createContact(name, lastname, email, phone, user?.token).then(data => {
+                contacts?.push(data);
+                onClick(false)
+            });
         }
 
     }
@@ -60,7 +73,8 @@ const ModalToCreate = observer(() => {
                             </Row>
                             <Row className={'justify-content-center mt-4'}>
                                 <Button onClick={()=> {
-                                    create()
+                                    console.log('create')
+                                    create();
                                 }} className={'w-auto'} variant="outline-success">Создать</Button>
                             </Row>
 

@@ -77,7 +77,7 @@ h4{
   background-color: white;
   width: 70%;
   min-height: 100vh;
-  border: #282c34 solid 1px;
+  border: #cdced0 solid 1px;
   margin-top: 40px;
   display: flex;
   flex-direction: column;
@@ -85,7 +85,7 @@ h4{
 }
 .contactItem{
   width: 95%;
-  border: #a59898 solid 1px;
+  border: #b4aaaa solid 1px;
   height: fit-content;
   border-radius: 20px;
 }
@@ -115,4 +115,21 @@ input{
   height: 30px;
   background-image: url("./Images/close.svg");
   background-size: cover;
+  background-color: #00fff3;
+  filter: invert(01);
+  border-radius: 25%;
+}
+.iconSearch{
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  background-image: url("./Images/loopa.png");
+  background-size: cover;
+  filter: opacity(0.3);
+  margin-right: 10px;
+}
+.searchWindow{
+  background-color: #fff;
+  border: #ced4da solid 1px;
+  border-top: white;
 }
