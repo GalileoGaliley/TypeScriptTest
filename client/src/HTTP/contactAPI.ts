@@ -6,10 +6,10 @@ export const getAllContacts = async (token:string) =>{
     console.log(data)
     return (data);
 };
-export const createContact = async (name:string, lastname:string, email:string, phone:string,token:string,) =>{
+export const createContact = async (name:string, lastname:string, email:string, phone:string,address:string, token:string,) =>{
     console.log('start')
-    const {data} = await $host.post('api/contact/create', {name, lastname, email, phone, token});
-    console.log(data)
+    const {data} = await $host.post('api/contact/create', {name, lastname, email, phone, address, token});
+
     return (data);
 };
 export const removeContact = async (token:string, id:number) =>{

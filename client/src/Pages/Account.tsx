@@ -17,7 +17,8 @@ const Account = observer(() => {
     console.log(context)
     let contacts = context.con
     let [token, setToken] = useState(user?.token)
-
+    let [state, setState] = useState<number>(0)
+    let [contactsState, setContactsState] = useState(contacts.Contact)
     const [middlewareArr,setMiddlewareArr] = useState<Contact[]>([])
     const Search = ()=>{
         let arr:Contact[]|undefined = contacts.Contact;
@@ -30,7 +31,13 @@ const Account = observer(() => {
                     retArr.push(item);
                     console.log(item)
                 }
+
             })
+        }
+        console.log(search)
+        if(search == undefined){
+            retArr = []
+            setMiddlewareArr(retArr)
         }
         setMiddlewareArr(retArr)
     }
@@ -56,13 +63,15 @@ const Account = observer(() => {
                 }
 
                 contacts.setContact(arr.sort(sort))
-                console.log(contacts.Contact)
+
+                setContactsState(contacts.Contact)
             })
         }else {
 
         }
+        console.log('logloglog')
 
-    },[token])
+    },[token, state])
         return (
             <>
                 <div className={'accountPage'}>
@@ -75,7 +84,8 @@ const Account = observer(() => {
 
                                     </div>
                                     <div className={'d-flex flex-column'}>
-                                        <Form.Control className={'w-auto'} value={search} onChange={(event)=> {setSearch(event.target.value); Search();}} placeholder={'Введите имя контакта'} type={'text'} />
+                                        <Form.Control className={'w-auto'} value={search} onChange={(event)=> {setSearch(event.target.value);
+                                            console.log(search); Search();}} placeholder={'Введите имя контакта'} type={'text'} />
                                         <div className={'searchWindow'}>
                                             {middlewareArr?middlewareArr.map((item:Contact, index) =>
                                                 <SearchElem key={index} name={item.name} id={item.id} lastname={item.lastname} phone={item.phone} />
@@ -90,9 +100,9 @@ const Account = observer(() => {
                             </Form>
                         </Row>
 
-                        {contacts.Contact?contacts.Contact.map((item:Contact) =>
+                        {contacts.Contact?contactsState?.map((item:Contact) =>
 
-                            <ContactItem key={item.id} name={item.name} id={item.id} lastname={item.lastname} phone={item.phone} address={item.address}/>
+                            <ContactItem key={item.id} contact={item} fun={()=>{setState(state+=1); return}}/>
 
                         ):<></>}
                         <ModalState/>

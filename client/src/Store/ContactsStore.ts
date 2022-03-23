@@ -19,6 +19,9 @@ export default class ContactsStore {
     setContact(contacts: Contact[]) {
         this._constacts = contacts;
     };
+    deleteContact(index:Contact){
+        this._constacts?.slice(index.id,1)
+    }
     get Contact(){
         return this._constacts;
     };

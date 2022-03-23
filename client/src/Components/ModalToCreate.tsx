@@ -7,7 +7,7 @@ import User from "../models/User";
 import {useNavigate} from "react-router-dom";
 import { useLocation } from 'react-router'
 
-const ModalToCreate = observer(({ onClick }:SetStateAction<any>) => {
+const ModalToCreate = observer(() => {
 
     const context = useContext(Context);
     let user = context.us.User;
@@ -16,17 +16,16 @@ const ModalToCreate = observer(({ onClick }:SetStateAction<any>) => {
     const [lastname, setLastname] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
+    const [address, setAddress] = useState('');
 
     const create = ()=>{
 
-        console.log(name + '/' + lastname + '/' + email + '/' + phone )
-        console.log(user)
         if (user){
 
             console.log(name + '/' + lastname + '/' + email + '/' + phone )
-            createContact(name, lastname, email, phone, user?.token).then(data => {
+            createContact(name, lastname, email, phone,address, user?.token).then(data => {
                 contacts?.push(data);
-                onClick(false)
+
             });
         }
 
@@ -69,6 +68,14 @@ const ModalToCreate = observer(({ onClick }:SetStateAction<any>) => {
                                 </Col>
                                 <Col md={5} className={'w-auto'}>
                                     <Form.Control  value={phone} onChange={(event)=> {setPhone(event.target.value)}} placeholder={'Введите номер телефона'} type={'text'} />
+                                </Col>
+                            </Row>
+                            <Row className={'mt-3 justify-content-center align-items-center'}>
+                                <Col md={3} className={'text-center'}>
+                                    <h4>Телефон</h4>
+                                </Col>
+                                <Col md={5} className={'w-auto'}>
+                                    <Form.Control  value={address} onChange={(event)=> {setAddress(event.target.value)}} placeholder={'Введите адрес'} type={'text'} />
                                 </Col>
                             </Row>
                             <Row className={'justify-content-center mt-4'}>
